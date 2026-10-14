@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LogLens - Log Analysis & Intrusion Detection</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><circle cx="13" cy="13" r="9" fill="none" stroke="#fff" stroke-width="2.5"/><path d="M20 20l7 7" stroke="#fff" stroke-width="3" stroke-linecap="round"/><path d="M8 14h3l2-4 3 8 2-4h2" fill="none" stroke="#E8A33D" stroke-width="1.8" stroke-linejoin="round"/></svg>
+    <div><h1>LogLens</h1><p>Log analysis and intrusion detection</p></div>
+  </div>
+  <div class="source" id="source"></div>
+  <div class="actions">
+    <button id="btnSample" class="btn ghost">New sample data</button>
+    <label class="btn ghost" for="fileIn">Upload logs</label>
+    <input id="fileIn" type="file" multiple hidden>
+    <a class="btn solid" href="/api/blocklist">Download blocklist</a>
+  </div>
+</header>
+
+<main>
+  <section class="kpis" id="kpis"></section>
+
+  <section class="row two">
+    <div class="panel wide">
+      <div class="phead"><h2>Activity over the last 24 hours</h2></div>
+      <div id="timeline" class="chart"></div>
+      <p class="hint">Click a coloured marker (top row) to open that attacker's story.</p>
+    </div>
+    <div class="panel">
+      <div class="phead"><h2>How far did attackers get?</h2></div>
+      <div id="stagebars"></div>
+      <div class="phead sub"><h2>Usernames guessed over SSH</h2></div>
+      <div id="userbars"></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <nav class="tabs" id="tabs">
+      <button data-tab="stories" class="on">Attack stories</button>
+      <button data-tab="alerts">All alerts</button>
+      <button data-tab="ips">IP behaviour scores</button>
+      <button data-tab="raw">Raw log lines</button>
+    </nav>
+    <div id="tab-stories" class="tab on"></div>
+    <div id="tab-alerts" class="tab"></div>
+    <div id="tab-ips" class="tab"></div>
+    <div id="tab-raw" class="tab"></div>
+  </section>
+</main>
+<div id="toast" role="status"></div>
+<script src="plotly.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

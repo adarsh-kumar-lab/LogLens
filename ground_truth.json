@@ -1,0 +1,9 @@
+{
+  "185.220.101.45": "full attack chain: scan -> SSH brute force -> login -> data theft",
+  "45.155.205.12": "SQL injection with sqlmap",
+  "103.75.190.7": "XSS + path traversal probing",
+  "91.240.118.9": "Nikto web vulnerability scan (404 flood)",
+  "198.51.100.77": "HTTP flood on /login (DoS)",
+  "203.0.113.50": "low-and-slow credential stuffing on /login",
+  "77.88.55.60": "off-hours SSH login from a never-seen IP"
+}
